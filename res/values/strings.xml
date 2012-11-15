@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Chirpy</string>
+    <string name="usernameText">Enter your username</string>
+    <string name="timeline">TimeLine</string>
+    <string name="mentions">Mentions</string>
+    <string name="mytweets">My Tweets</string>
+    <string name="update_status">Update your Status</string>
+    <string name="compose_tweet">Compose a new tweet</string>
+    <string name="NA">NA</string>
+    <string name="update">Update</string>
+    <string name="cancel">Cancel</string>
+    <string name="no_account_present">No account present.\nPlease add a account.</string>
+    <string name="add_account">Add Account</string>
+    <string name="placeholder">DP</string>
+    <string name="new_tweets">New Tweets</string>
+    <string name="tweets">Tweets</string>
+    <string name="new_text">New</string>
+    
+    <string-array name="modes">
+        <item>TimeLine</item>
+        <item>Mentions</item>
+        <item>My Tweets</item>
+    </string-array>
+
+</resources>

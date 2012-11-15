@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <style name="AppTheme" parent="@android:style/Theme.Holo.Light">
+        <item name="android:windowBackground">@color/background</item>
+        <item name="android:windowNoTitle">false</item>
+        <item name="android:actionBarTabTextStyle">@style/customActionBarTabTextStyle</item>
+    </style>
+
+    <style name="customWindowTitleBackground">
+        <item name="android:background">#FF58E1ED</item>
+    </style>
+
+    <style name="Splash" parent="@android:style/Theme.Holo.Light">
+        <item name="android:windowBackground">@color/background</item>
+        <item name="android:windowNoTitle">true</item>
+    </style>
+    
+    <style name="Dialog" parent="@android:style/Theme.Holo.Light.Dialog">
+		<item name="android:windowNoTitle">true</item>
+	</style>
+
+    <style name="scroll_bar_style">
+        <item name="android:background">#FF808080</item>
+    </style>
+
+    <style name="customActionBarTabTextStyle">
+        <item name="android:textColor">@android:color/black</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+
+</resources>

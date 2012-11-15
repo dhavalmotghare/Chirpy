@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ProgressBar xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/progress_bar"
+    android:layout_width="34dip"
+    android:layout_height="34dip"
+    android:layout_marginLeft="10dip"
+    android:layout_marginRight="10dip"
+    android:indeterminate="true" />

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.chirpy"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <supports-screens
+        android:anyDensity="true"
+        android:largeScreens="true" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>    
+    
+
+    <uses-sdk
+        android:minSdkVersion="11"
+        android:targetSdkVersion="12" />
+
+
+    <application
+        android:icon="@drawable/chirpy_icon"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name=".Chirp"
+            android:label="@string/app_name"
+            android:theme="@style/Splash" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".view.AuthActivity"
+            android:label="Authorize your account" >
+            <intent-filter>
+			<action android:name="android.intent.action.VIEW" />
+			<category android:name="android.intent.category.DEFAULT" />
+			<category android:name="android.intent.category.BROWSABLE" />
+			<data
+			    android:host="OAuthTwitter"
+			    android:scheme="chirpy" >
+			</data>
+        </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".view.MainScreen"
+            android:label="" >
+        </activity>
+        
+        <activity
+            android:name=".view.SearchActivity"
+            android:label="Search" >
+        </activity>
+        
+        <service
+            android:name="com.chirpy.service.ChirpyService"/>
+        <provider android:name=".data.TweetDatabase"
+			android:authorities="com.chirpy.tweetsProvider"/>
+    </application>
+
+</manifest>
