@@ -161,7 +161,10 @@ public class ChirpyService extends Service {
             }
             if (newTweets > 0) {
                 mContentResolver.notifyChange(mContentUri, null);
-                sendNotification(timelineType,newTweets);
+                if(timelineType != TweetDatabase.TIMELINE_TYPE_MYTWEETS){
+                	clearNotification(timelineType);
+                	sendNotification(timelineType,newTweets);
+                }
             }
             if (lastId > saveLastID) {
                 getTwitterManager().saveTweetID(lastId, timelineType);
@@ -174,6 +177,15 @@ public class ChirpyService extends Service {
     }
     
     /**
+	 * Clear All Notifications
+	 */
+	private void clearNotification(int type) {
+		NotificationManager notificationManager = (NotificationManager) getApplicationContext()
+				.getSystemService(Context.NOTIFICATION_SERVICE);
+		notificationManager.cancel(type);
+	}
+	
+    /**
      * Display a notification if there are new tweets
      * 
      * @param type
@@ -184,7 +196,7 @@ public class ChirpyService extends Service {
 
 		if (type == TweetDatabase.TIMELINE_TYPE_MYTWEETS) return;
 
-		final int icon = R.drawable.chirpy_icon;
+		final int icon = R.drawable.chirpy_icon_small;
 		final String ns = Context.NOTIFICATION_SERVICE;
 		final CharSequence tickerText = getString(R.string.app_name);
 

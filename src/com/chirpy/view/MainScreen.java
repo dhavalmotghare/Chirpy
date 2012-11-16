@@ -8,6 +8,7 @@ import android.app.Activity;
 import android.app.AlarmManager;
 import android.app.AlertDialog;
 import android.app.FragmentTransaction;
+import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
 import android.content.ContentResolver;
@@ -313,7 +314,7 @@ public class MainScreen extends Activity implements OnItemClickListener, ActionB
 			refreshData();
 			return true;
 		case R.id.menu_delete:
-			deleteAccount();
+			confirmDelete();
 			return true;
 		case R.id.menu_search:
 			launchSearch();
@@ -327,6 +328,34 @@ public class MainScreen extends Activity implements OnItemClickListener, ActionB
 
 	}
 	
+	/**
+	 * Confirm account delete
+	 */
+	private void confirmDelete() {
+		new AlertDialog.Builder(this)
+				.setIcon(android.R.drawable.ic_dialog_alert)
+				.setTitle(R.string.delete_account)
+				.setMessage(R.string.delete_account_msg)
+				.setPositiveButton(R.string.yes,
+						new DialogInterface.OnClickListener() {
+
+							/*
+							 * (non-Javadoc)
+							 * @see android.content.DialogInterface.OnClickListener#onClick(android.content.DialogInterface, int)
+							 */
+							public void onClick(DialogInterface dialog,
+									int which) {
+								deleteAccount();
+							}
+
+						}).setNegativeButton(R.string.no, null).show();
+	}
+	
+	/**
+	 * Delete the account
+	 * 
+	 * @return
+	 */
 	private boolean deleteAccount(){
 		boolean accountDeleteStatus = true;
 		String message = "Account deleted successfully";
@@ -364,10 +393,22 @@ public class MainScreen extends Activity implements OnItemClickListener, ActionB
 			showMessage(message);
 			Intent intent = new Intent(this, AuthActivity.class);
 			startActivity(intent);
+			finish();
 		}else{
 			showMessage(error);
 		}
+		clearNotifications();
 		return accountDeleteStatus;
+	}
+	
+	/**
+	 * Clear All Notification when this screen is shown
+	 */
+	private void clearNotifications() {
+		NotificationManager notificationManager = (NotificationManager) getApplicationContext()
+				.getSystemService(Context.NOTIFICATION_SERVICE);
+		notificationManager.cancelAll();
+
 	}
 	
 	/**
@@ -451,6 +492,7 @@ public class MainScreen extends Activity implements OnItemClickListener, ActionB
 	    protected void onPostExecute(Boolean result) {
 	    	if(result){
 				Toast.makeText(getApplicationContext(), "Status updated successfully.", Toast.LENGTH_LONG).show();
+				refreshData();
 			}else{
 				Toast.makeText(getApplicationContext(), "There was some problem in updating the status.", Toast.LENGTH_LONG).show();
 			}
@@ -466,6 +508,7 @@ public class MainScreen extends Activity implements OnItemClickListener, ActionB
 		if(status != ChirpyService.STATUS_UPDATING){
 			Intent serviceIntent = new Intent(this, ChirpyService.class);
 			getApplicationContext().startService(serviceIntent);
+			showMessage("Updating Please wait");
 		}
 	}
 	

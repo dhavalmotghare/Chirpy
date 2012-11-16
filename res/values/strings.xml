@@ -17,6 +17,11 @@
     <string name="new_tweets">New Tweets</string>
     <string name="tweets">Tweets</string>
     <string name="new_text">New</string>
+    <string name="delete_account">Delete Account</string>
+    <string name="delete_account_msg">Are you sure you want to delete your account?</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+        
     
     <string-array name="modes">
         <item>TimeLine</item>
