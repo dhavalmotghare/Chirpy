@@ -25,8 +25,8 @@ import twitter4j.Tweet;
 public class TwitterManager {
 
 	/** Twitter constants */
-	public final static String CONSUMER_KEY = "tWu6n12MnZIixC2hUNT3ig";
-	public final static String CONSUMER_SECRET = "DALHNjSrZUQ3U9T1qhfv4jvskcAWRrHSiy4FAGr3JQ";
+	public final static String CONSUMER_KEY = "Your key here";
+	public final static String CONSUMER_SECRET = "Your secret here";
 	public final static String CALLBACK_URL = "chirpy://OAuthTwitter"; 
 	
 	/** Twitter URLS */
