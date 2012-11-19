@@ -1,6 +1,3 @@
-/**
- * 
- */
 package com.chirpy.util;
 
 import android.util.Log;

@@ -22,41 +22,42 @@ import com.chirpy.data.TwitterManager;
  * Search Screen for searching public tweets.
  * 
  * @author dhavalmotghare@gmail.com
- *
+ * 
  */
 public class SearchActivity extends Activity {
-	
+
 	/** References to needed objects */
 	private EditText searchBox;
 	private ListView searchResult;
 	private ImageButton searchButton;
-	
+
 	/*
 	 * (non-Javadoc)
+	 * 
 	 * @see android.app.Activity#onCreate(android.os.Bundle)
 	 */
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.searchlayout);
-		searchBox = (EditText)findViewById(R.id.search_box);
-		searchResult = (ListView)findViewById(R.id.search_result);
-		searchButton = (ImageButton)findViewById(R.id.search_button);
+		searchBox = (EditText) findViewById(R.id.search_box);
+		searchResult = (ListView) findViewById(R.id.search_result);
+		searchButton = (ImageButton) findViewById(R.id.search_button);
 		searchButton.setOnClickListener(new View.OnClickListener() {
-			
+
 			@Override
 			public void onClick(View v) {
 				String searchQuery = searchBox.getText().toString();
-				if(searchQuery == null || searchQuery.equals("")){
-					Toast.makeText(getApplicationContext(), "Please enter a search query.", Toast.LENGTH_LONG).show();
-				}else{
-					Toast.makeText(getApplicationContext(), "Searching Please wait..", Toast.LENGTH_LONG).show();
+				if (searchQuery == null || searchQuery.equals("")) {
+					Toast.makeText(getApplicationContext(),"Please enter a search query.", Toast.LENGTH_LONG).show();
+				} else {
+					Toast.makeText(getApplicationContext(),"Searching Please wait..", Toast.LENGTH_LONG).show();
 					new SearchTask().execute(searchQuery);
 					hideKeyBoard();
 				}
 			}
 		});
 	}
-	
+
 	/**
 	 * Hide the keyboard when the user clicks the search button
 	 */
@@ -64,7 +65,7 @@ public class SearchActivity extends Activity {
 		InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
 		imm.hideSoftInputFromWindow(searchBox.getWindowToken(), 0);
 	}
-	
+
 	/**
 	 * Search async task
 	 * 
@@ -72,24 +73,24 @@ public class SearchActivity extends Activity {
 	 */
 	class SearchTask extends AsyncTask<String, Void, List<Tweet>> {
 
-	    protected List<Tweet> doInBackground(String... query) {
-	        try {
-	        	return TwitterManager.getInstance().search(query[0]);
-	        } catch (Exception e) {
-	            e.printStackTrace();
-	            return null;
-	        }
-	    }
-
-	    protected void onPostExecute(List<Tweet> tweets) {
-	    	
-	    	if(tweets != null && tweets.size() > 0){
-	    		searchResult.setAdapter(new SearchAdapter(getApplicationContext(), tweets));
-				Toast.makeText(getApplicationContext(), "Tweets found", Toast.LENGTH_LONG).show();
-			}else{
-				Toast.makeText(getApplicationContext(), "No results found", Toast.LENGTH_LONG).show();
+		protected List<Tweet> doInBackground(String... query) {
+			try {
+				return TwitterManager.getInstance().search(query[0]);
+			} catch (Exception e) {
+				e.printStackTrace();
+				return null;
 			}
-	    }
-	 }
-	
+		}
+
+		protected void onPostExecute(List<Tweet> tweets) {
+
+			if (tweets != null && tweets.size() > 0) {
+				searchResult.setAdapter(new SearchAdapter(getApplicationContext(), tweets));
+				Toast.makeText(getApplicationContext(), "Tweets found",Toast.LENGTH_LONG).show();
+			} else {
+				Toast.makeText(getApplicationContext(), "No results found",Toast.LENGTH_LONG).show();
+			}
+		}
+	}
+
 }

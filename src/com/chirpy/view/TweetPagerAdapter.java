@@ -9,7 +9,7 @@ import android.support.v4.view.ViewPager;
 import android.view.View;
 
 /**
- * Adapter for the searched tweets for displaying it in a list 
+ * Page adapter for displaying the three time lines
  * 
  * @author dhavalmotghare@gmail.com
  *
