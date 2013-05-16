@@ -6,5 +6,5 @@
     <color name="background">#FFB5B6B6</color>
     <color name="scroll_bar_color">#FFf1f1f1</color>
     <drawable name="app_bar_text_color">#FFFFFFFF</drawable>
-    
+
 </resources>

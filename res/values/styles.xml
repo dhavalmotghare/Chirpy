@@ -15,10 +15,10 @@
         <item name="android:windowBackground">@color/background</item>
         <item name="android:windowNoTitle">true</item>
     </style>
-    
+
     <style name="Dialog" parent="@android:style/Theme.Holo.Light.Dialog">
-		<item name="android:windowNoTitle">true</item>
-	</style>
+        <item name="android:windowNoTitle">true</item>
+    </style>
 
     <style name="scroll_bar_style">
         <item name="android:background">#FF808080</item>

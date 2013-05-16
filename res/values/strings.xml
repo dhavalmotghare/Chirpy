@@ -21,8 +21,8 @@
     <string name="delete_account_msg">Are you sure you want to delete your account?</string>
     <string name="yes">Yes</string>
     <string name="no">No</string>
-        
-    
+
+
     <string-array name="modes">
         <item>TimeLine</item>
         <item>Mentions</item>

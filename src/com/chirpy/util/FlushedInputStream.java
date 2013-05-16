@@ -9,10 +9,9 @@ import java.io.InputStream;
  * There is a bug in FlushedInputStream(is). it fails on slow connections, the following solutions solves this problem
  *
  * @author dhavalmotghare@gmail.com
- *
  */
 class FlushedInputStream extends FilterInputStream {
-	 
+
     /**
      * The constructor that takes in the InputStream reference.
      *
@@ -21,10 +20,10 @@ class FlushedInputStream extends FilterInputStream {
     public FlushedInputStream(final InputStream inputStream) {
         super(inputStream);
     }
- 
+
     /**
      * Overriding the skip method to actually skip n bytes.
-     * This implementation makes sure that we actually skip 
+     * This implementation makes sure that we actually skip
      * the n bytes no matter what.
      * {@inheritDoc}
      */
@@ -54,7 +53,7 @@ class FlushedInputStream extends FilterInputStream {
             }
             //Adding the bytesSkipped to totalBytesSkipped
             totalBytesSkipped += bytesSkipped;
-        }        
+        }
         return totalBytesSkipped;
     }
 }

@@ -1,28 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/menu_tweet"
-        android:icon="@drawable/menu_edit"
-        android:visible="true"
-         android:title="Tweet"
-        android:showAsAction="ifRoom|collapseActionView" />
+            android:id="@+id/menu_tweet"
+            android:icon="@drawable/menu_edit"
+            android:visible="true"
+            android:title="Tweet"
+            android:showAsAction="ifRoom|collapseActionView"/>
     <item
-        android:id="@+id/menu_refresh"
-        android:icon="@drawable/menu_refresh"
-        android:title="Refresh"
-        android:showAsAction="ifRoom|collapseActionView"/>
-    
+            android:id="@+id/menu_refresh"
+            android:icon="@drawable/menu_refresh"
+            android:title="Refresh"
+            android:showAsAction="ifRoom|collapseActionView"/>
+
     <item
-        android:id="@+id/menu_search"
-        android:icon="@drawable/menu_search"
-        android:title="Search"
-       android:showAsAction="ifRoom|collapseActionView"/>
-    
+            android:id="@+id/menu_search"
+            android:icon="@drawable/menu_search"
+            android:title="Search"
+            android:showAsAction="ifRoom|collapseActionView"/>
+
     <item
-        android:id="@+id/menu_delete"
-        android:icon="@drawable/menu_discard"
-        android:title="Delete Account"
-       android:showAsAction="ifRoom|collapseActionView"/>
+            android:id="@+id/menu_delete"
+            android:icon="@drawable/menu_discard"
+            android:title="Delete Account"
+            android:showAsAction="ifRoom|collapseActionView"/>
 
 </menu>
